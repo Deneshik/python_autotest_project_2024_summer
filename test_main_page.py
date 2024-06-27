@@ -1,4 +1,7 @@
 from .pages.main_page import MainPage
+import pytest
+from selenium import webdriver
+from .pages.login_page import LoginPage
 
 
 def test_guest_can_go_to_login_page(browser):
