@@ -29,19 +29,6 @@ class ProductPage(BasePage):
         assert self.is_element_present(*ProductPageLocators.BASKET_TOTAL), "Basket total is not presented"
         basket_total = self.browser.find_element(*ProductPageLocators.BASKET_TOTAL).text
 
-    # def should_be_correct_basket_total(self, product_price):
-    #     # Ожидание, пока элемент станет видимым
-    #     basket_total_element = WebDriverWait(self.browser, 10).until(
-    #         EC.visibility_of_element_located((ProductPageLocators.BASKET_TOTAL))
-    #     )
-    #     basket_total = basket_total_element.text
-    #     print(f"Product price: {product_price}")
-    #     print(f"Basket total: {basket_total}")
-    #     # Удаляем лишние символы и пробелы
-    #     product_price = product_price.replace('£', '').strip()
-    #     basket_total = basket_total.replace('£', '').strip()
-    #     assert product_price == basket_total, f"Basket total is not correct: {basket_total} != {product_price}"
-
     def should_not_be_success_message(self):
         assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
             "Success message is presented, but should not be"
