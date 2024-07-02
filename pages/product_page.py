@@ -37,6 +37,13 @@ class ProductPage(BasePage):
         basket_total = basket_total.replace('£', '').strip()
         assert product_price == basket_total, f"Basket total is not correct: {basket_total} != {product_price}"
 
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
+            "Success message is presented, but should not be"
+
+    def should_success_message_disappear(self):
+        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), \
+            "Success message did not disappear, but should have"
 
 
 
